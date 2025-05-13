@@ -1,12 +1,8 @@
 package oslomet.fullstackmultitablecrud.controller;
 
+import org.springframework.web.bind.annotation.*;
 import oslomet.fullstackmultitablecrud.models.Ships;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import oslomet.fullstackmultitablecrud.repository.ShipRepository;
 
 @RestController
@@ -28,5 +24,13 @@ public class ShipController {
         repository.createShip(ship);
     }
 
+    @PutMapping("/updateShip/{id}")
+    public void updateShip(@PathVariable int id, @RequestBody Ships ship){
+        repository.updateShip(id, ship);
+    }
 
+    @DeleteMapping("/deleteShip/{id}")
+    public void deleteShip(@PathVariable int id){
+        repository.deleteShip(id);
+    }
 }

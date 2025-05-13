@@ -34,7 +34,7 @@ public class ShipRepository {
     }
 
     public void updateShip(int id, Ships ship){
-        String sql = "UPDATE ships SET name = ?, description = ?, price = ? WHERE id = id";
+        String sql = "UPDATE ships SET name = ?, description = ?, price = ? WHERE id = ?";
         jdbcTemplate.update(sql, ship.getName(), ship.getDescription(), ship.getPrice(), id);
     }
 
